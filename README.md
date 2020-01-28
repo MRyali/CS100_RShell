@@ -14,6 +14,9 @@
 
 <br>
 
+# Diagram
+![OMT Diagram](images/omtdiagram.png)
+
 <h1>Classes</h1>
 
 *Token Class*
