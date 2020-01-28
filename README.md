@@ -45,4 +45,5 @@ and “execute” function that will return a boolean based on the presence of e
 each of the commands the user has typed in.</dd>
 </d1>
 
- 
+# Prototypes/Research
+The prototype functions for `waitpid()`, `execvp()`, and `fetch()` show promise. The sample program is able to comfortable execute basic commands. More work is needed to actually separate the execution onto a different system thread. The parser is able to separate different commands and their separators, but needs more work to actually create different tokens for each command. The code written will be beneficial to Assignment 2, as it lays down the foundations for the actual functionality of the shell.
