@@ -2,4 +2,6 @@
 
 # Project Information
 * Winter 2020
-* Kashyap Panda (862076026)
+* Collaborators
+  * Kashyap Panda (862076026)
+  * Mayur Ryali (862076991)
