@@ -47,3 +47,12 @@ each of the commands the user has typed in.</dd>
 
 # Prototypes/Research
 The prototype functions for `waitpid()`, `execvp()`, and `fetch()` show promise. The sample program is able to comfortable execute basic commands. More work is needed to actually separate the execution onto a different system thread. The parser is able to separate different commands and their separators, but needs more work to actually create different tokens for each command. The code written will be beneficial to Assignment 2, as it lays down the foundations for the actual functionality of the shell.
+
+# Development and Testing Roadmap
+- [ ] Create Token (Including AndToken, OrToken, SemiColonToken, CommandToken)
+- [ ] Create Token tests
+- [ ] Create Executor
+- [ ] Create Executor tests
+- [ ] Create Tokenizer
+- [ ] Create Tokenizer tests
+
