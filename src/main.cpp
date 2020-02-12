@@ -25,5 +25,8 @@ string* parseUserInput() {
 }
 
 int main() {
-
+    while (true) {
+        string* input[] = parseUserInput();
+        execute(input);
+    }
 }
