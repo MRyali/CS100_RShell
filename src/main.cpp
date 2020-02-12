@@ -4,7 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <iterator>
-#include <readline/readline.h>
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
