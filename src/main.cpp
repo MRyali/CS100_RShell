@@ -12,13 +12,18 @@ string* parseUserInput() {
     cout << "$ ";
     getline(cin, inputStr);
 
-    istringstream buffer(inputStr);
-    istream_iterator<string> beginning(buffer), end;
+    if (inputStr.length() != 0) {
+        istringstream buffer(inputStr);
+        istream_iterator<string> beginning(buffer), end;
 
-    vector<string> inputs(beginning, end);
-    return inputs.data();
+        vector<string> inputs(beginning, end);
+        return inputs.data();
+    }
+    else {
+        return nullptr;
+    }
 }
 
 int main() {
-    
+
 }
