@@ -11,27 +11,6 @@
 
 using namespace std;
 
-void execute(vector<char*> vectorInput) {
-  // array for storing commands from user input
-  char** arr = &vectorInput[0];
-  pid_t wait_for_result;
-  int status;
-
-  // fork child process
-  pid_t child_process = fork();
-
-  if (child_process == 0) {
-    // execute command from array of strings
-    execvp(arr[0], arr);
-  }
-  else {
-      // wait for child process to finish
-      wait_for_result = waitpid(child_process, &status, WUNTRACED);
-  }
-  // kill child process
-  kill(child_process, SIGKILL);
-}
-
 vector<char*> parseUserInput() {
     string inputStr;
     cout << "$ ";
@@ -48,11 +27,12 @@ vector<char*> parseUserInput() {
         for (int i = 0; i < inputs.size(); i++) {
             returnInputs.push_back(const_cast<char*>(inputs[i].c_str()));
         }
+        returnInputs.push_back((char*)NULL);
 
         return returnInputs;
     }
     else {
-        // return nullptr;
+
     }
 }
 
