@@ -46,7 +46,7 @@ void execute(vector<char*> vectorInput) {
 
   //Error messages after fork updates
   if (child_process < 0) {
-      cout << "Fork Failed" << endl;
+      perror("Fork Failed");
       exit(1);
   }
   if (child_process == 0) {
