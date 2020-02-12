@@ -10,9 +10,8 @@
 
 using namespace std;
 
-void fork_function() {
+void execute(string *arr[]) {
   // array for storing commands from user input
-  string *arr[] = parseUserInput();
   pid_t wait_for_result;
   int status;
   // fork child process
