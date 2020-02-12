@@ -44,14 +44,18 @@ void execute(vector<char*> vectorInput) {
   // fork child process
   pid_t child_process = fork();
 
+  //Error messages after fork updates
+  if (child_process < 0) {
+      cout << "Fork Failed" << endl;
+      exit(1);
+  }
   if (child_process == 0) {
     // execute command from array of strings
     execvp(arr[0], arr);
   }
   else {
       // wait for child process to finish
-      wait_for_result = (child_process, &status, WUNTRACED);
-      cout << "Fork() failed" << endl;
+      wait_for_result = waitpid(child_process, &status, WUNTRACED);
   }
 }
 
