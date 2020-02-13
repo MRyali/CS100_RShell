@@ -30,7 +30,7 @@ bool CommandToken::execute() {
 	if (child_process < 0) {
 		perror("Fork Failed");
 		// terminates program upon recieving fork failure with return val of 1
-		exit(false);
+		return false;
 	}
 	else if (child_process == 0) {
 	  // execute command from our array of strings
