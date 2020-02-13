@@ -1,6 +1,3 @@
-#ifndef EXECUTOR_HPP
-#define EXECUTOR_HPP
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
@@ -12,16 +9,12 @@
 #include <sys/wait.h>
 #include <vector>
 
-#include "SeparatorToken.hpp"
-
 using namespace std;
 
-class Executor : public Token {
+class Token {
     protected:
-
+        string name;
     public:
-        Executor();
-        int execute(vector<char*>);
+        Token();
+        virtual int execute() = 0;
 };
-
-#endif

@@ -4,19 +4,19 @@
 #include <iostream>
 #include <vector>
 
-#include "SeparatorToken.hpp"
+//#include "SeparatorToken.hpp"
 #include "Executor.hpp"
 
 using namespace std;
 
-class AndToken : public base {
+class AndToken : public SeparatorToken {
     protected:
         SeparatorToken* left;
         SeparatorToken* right;
     public:
         AndToken();
         AndToken(SeparatorToken* first, SeparatorToken* second);
-        int execute();
+        int execution();
 };
 
 #endif

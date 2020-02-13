@@ -2,15 +2,14 @@
 
 using namespace std;
 
-OrToken::OrToken () {
-}
+OrToken::OrToken () {}
 
 OrToken::OrToken (SeparatorToken* first, SeparatorToken* second) {
     left = first;
     right = second;
 }
 
-int OrToken::execute() {
+int OrToken::execution() {
     int status = left->execute();
     if (status == 0) {
         return status;
