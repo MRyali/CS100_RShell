@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-//#include "SeparatorToken.hpp"
+#include "SeparatorToken.hpp"
 #include "Executor.hpp"
 
 using namespace std;

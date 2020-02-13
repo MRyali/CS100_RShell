@@ -1,5 +1,5 @@
-#ifndef ORTOKEN_HPP
-#define ORTOKEN_HPP
+#ifndef ANDTOKEN_HPP
+#define ANDTOKEN_HPP
 
 #include <iostream>
 #include <vector>
@@ -9,13 +9,13 @@
 
 using namespace std;
 
-class OrToken : public SeparatorToken {
+class SemiColonToken : public SeparatorToken {
     protected:
         Token* left;
         Token* right;
     public:
-        OrToken();
-        OrToken(Token* first, Token* second);
+        SemiColonToken();
+        SemiColonToken(Token* first, Token* second);
         bool execute();
 };
 
