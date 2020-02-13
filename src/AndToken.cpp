@@ -7,17 +7,11 @@ AndToken::AndToken() : SeparatorToken() {}
 AndToken::AndToken(Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool AndToken::execute() {
-    bool status = leftSide->execute();
-    if (status) {
-        status = rightSide->execute();
-        if (status) {
-            return status;
+    if (leftSide->execute()) {
+        if (rightSide->execute()) {
+            return true;
         }
-        else {
-            return false;
-        }
-    }
-    else {
         return false;
     }
+    return false;
 }
