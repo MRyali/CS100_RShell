@@ -3,8 +3,8 @@
 using namespace std;
 
 SeparatorToken::SeparatorToken() {
-	leftSide = nullptr;
-	rightSide = nullptr;
+	leftSide = 0;
+	rightSide = 0;
 }
 
 SeparatorToken::SeparatorToken(Token* left, Token* right) {

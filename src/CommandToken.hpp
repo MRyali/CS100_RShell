@@ -2,12 +2,14 @@
 #define COMMAND_TOKEN_HPP
 
 #include "Token.hpp"
+#include <iostream>
 #include <deque>
 #include <string>
 #include <sys/wait.h>
 #include <cstring>
 #include <unistd.h>
 #include <stdio.h>
+#include <vector>
 
 using namespace std;
 
