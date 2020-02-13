@@ -17,13 +17,13 @@ class CommandToken : public Token {
 	private:
 		char* commandName;
 		deque<char*> arguments;
-	
+
 	public:
 		CommandToken() {}
-		
+
 		CommandToken(char* command) {
 			commandName = command;
-		}	
+		}
 		
 		void addArgument(char* arg);
 		string getName();
