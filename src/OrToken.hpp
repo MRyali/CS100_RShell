@@ -11,11 +11,11 @@ using namespace std;
 
 class OrToken : public SeparatorToken {
     protected:
-        SeparatorToken* left;
-        SeparatorToken* right;
+        Token* left;
+        Token* right;
     public:
         OrToken();
-        OrToken(SeparatorToken* first, SeparatorToken* second);
+        OrToken(Token* first, Token* second);
         int execution();
 };
 

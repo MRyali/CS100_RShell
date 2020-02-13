@@ -4,8 +4,8 @@ using namespace std;
 
 class SeparatorToken : public Token {
     protected:
-        vector<Token*> leftSide;
-        vector<Token*> rightSide;
+        Token* leftSide;
+        Token* rightSide;
     public:
         SeparatorToken();
 };

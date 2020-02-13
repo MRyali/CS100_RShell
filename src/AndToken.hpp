@@ -11,11 +11,11 @@ using namespace std;
 
 class AndToken : public SeparatorToken {
     protected:
-        SeparatorToken* left;
-        SeparatorToken* right;
+        Token* left;
+        Token* right;
     public:
         AndToken();
-        AndToken(SeparatorToken* first, SeparatorToken* second);
+        AndToken(Token* first, Token* second);
         int execution();
 };
 

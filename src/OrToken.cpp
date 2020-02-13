@@ -4,7 +4,7 @@ using namespace std;
 
 OrToken::OrToken () {}
 
-OrToken::OrToken (SeparatorToken* first, SeparatorToken* second) {
+OrToken::OrToken (Token* first, Token* second) {
     left = first;
     right = second;
 }

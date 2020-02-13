@@ -4,7 +4,7 @@ using namespace std;
 
 AndToken::AndToken () {}
 
-AndToken::AndToken (SeparatorToken* first, SeparatorToken* second) {
+AndToken::AndToken (Token* first, Token* second) {
     left = first;
     right = second;
 }
