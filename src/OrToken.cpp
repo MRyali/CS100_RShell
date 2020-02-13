@@ -2,20 +2,17 @@
 
 using namespace std;
 
-OrToken::OrToken () {}
+OrToken::OrToken() : SeparatorToken() {}
 
-OrToken::OrToken (Token* first, Token* second) {
-    left = first;
-    right = second;
-}
+OrToken::OrToken (Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool OrToken::execute() {
-    bool status = left->execute();
+    bool status = leftSide->execute();
     if (status) {
         return status;
     }
     else {
-        status = right->execute();
+        status = rightSide->execute();
         if (status) {
             return status;
         }

@@ -2,17 +2,14 @@
 
 using namespace std;
 
-AndToken::AndToken () {}
+AndToken::AndToken() : SeparatorToken() {}
 
-AndToken::AndToken (Token* first, Token* second) {
-    left = first;
-    right = second;
-}
+AndToken::AndToken(Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool AndToken::execute() {
-    bool status = left->execute();
+    bool status = leftSide->execute();
     if (status) {
-        status = right->execute();
+        status = rightSide->execute();
         if (status) {
             return status;
         }

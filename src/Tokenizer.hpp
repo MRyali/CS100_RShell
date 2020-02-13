@@ -4,18 +4,19 @@
 #include <string>
 #include <cstring>
 #include <iostream>
-#include <sstream>
-#include <iterator>
-#include <unistd.h>
 #include <deque>
+
+#include "CommandToken.hpp"
+#include "AndToken.hpp"
+#include "OrToken.hpp"
+#include "SeparatorToken.hpp"
+#include "SemiColonToken.hpp"
+#include "ExitToken.hpp"
 
 using namespace std;
 
 class Tokenizer {
     private:
-        deque<CommandToken*> commandTokens;
-        deque<char*> connectors;
-        
         string inputStr;
 
     public:
@@ -23,6 +24,8 @@ class Tokenizer {
             this->inputStr = inputStr;
         }
 
+        deque<CommandToken*> commandTokens;
+        deque<char*> connectors;
         void tokenize();
 };
 

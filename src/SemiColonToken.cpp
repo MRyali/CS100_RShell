@@ -2,16 +2,13 @@
 
 using namespace std;
 
-SemiColonToken::SemiColonToken() {}
+SemiColonToken::SemiColonToken() : SeparatorToken() {}
 
-SemiColonToken::SemiColonToken(Token* first, Token* second) {
-    left = first;
-    right = second;
-}
+SemiColonToken::SemiColonToken(Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool SemiColonToken::execute() {
-    bool status = left->execute();
-    status = right->execute();
+    bool status = leftSide->execute();
+    status = rightSide->execute();
     if (!status) {
         return false;
     }

@@ -23,10 +23,8 @@ bool containsOrAnd(char* tokens) {
 }
 
 void Tokenizer::tokenize() {
-    
-    
     if (inputStr.length() != 0) {
-        char* primitiveInput = new char[inputStr.length() + 1];
+        char* primitiveInput = new char[inputStr.size() + 1];
         strcpy(primitiveInput, inputStr.c_str());
         char* currToken = strtok(primitiveInput, " ");
         
@@ -87,8 +85,9 @@ void Tokenizer::tokenize() {
                     currToken = strtok(NULL, currToken);
                     
                     if (currCommand->getName() == "exit") {
+                        commandTokens.push_back(currCommand);
                         ExitToken* exitToken = new ExitToken();
-                        commandTokens.push_back(exitToken);
+                        
                     }
                     else {
                         commandTokens.push_back(currCommand);
