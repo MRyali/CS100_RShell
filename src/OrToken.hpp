@@ -10,9 +10,6 @@
 using namespace std;
 
 class OrToken : public SeparatorToken {
-    protected:
-        Token* left;
-        Token* right;
     public:
         OrToken();
         OrToken(Token* first, Token* second);

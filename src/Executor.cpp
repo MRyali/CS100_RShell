@@ -9,7 +9,7 @@ void Executor::execute() {
 		commandTokens.pop_front();
 		
 		char* currSeparator = separators.front();
-		separators.pop_front()
+		separators.pop_front();
 		
 		if (strncmp(currSeparator, "&&", 2)) {
 			AndToken* andToken = new AndToken(left, right);
@@ -27,14 +27,14 @@ void Executor::execute() {
 		}
 		
 		while (separators.size() != 0) {
-			CommandToken* left = tokens.front();
-			commandTokens.pop_front();
+			SeparatorToken* left = tokens.front();
+			tokens.pop_front();
 			
 			CommandToken* right = commandTokens.front();
 			commandTokens.pop_front();
 			
 			char* currSeparator = separators.front();
-			separators.pop_front()
+			separators.pop_front();
 			
 			if (strncmp(currSeparator, "&&", 2)) {
 				AndToken* andToken = new AndToken(left, right);

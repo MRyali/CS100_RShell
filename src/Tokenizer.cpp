@@ -87,8 +87,9 @@ void Tokenizer::tokenize() {
                     currToken = strtok(NULL, currToken);
                     
                     if (currCommand->getName() == "exit") {
+                        commandTokens.push_back(currCommand);
                         ExitToken* exitToken = new ExitToken();
-                        commandTokens.push_back(exitToken);
+                        
                     }
                     else {
                         commandTokens.push_back(currCommand);
