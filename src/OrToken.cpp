@@ -9,16 +9,16 @@ OrToken::OrToken (Token* first, Token* second) {
     right = second;
 }
 
-int OrToken::execution() {
-    int status = left->execute();
-    if (status == 0) {
+bool OrToken::execute() {
+    bool status = left->execute();
+    if (status) {
         return status;
     }
     else {
         status = right->execute();
-        if (status == 0) {
+        if (status) {
             return status;
         }
     }
-    return -1;
+    return false;
 }

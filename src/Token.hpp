@@ -16,5 +16,5 @@ class Token {
         string name;
     public:
         Token();
-        virtual int execute() = 0;
+        virtual bool execute() = 0;
 };

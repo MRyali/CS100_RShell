@@ -16,12 +16,12 @@
 
 using namespace std;
 
-class Executor : public Token {
-    protected:
-
+class Executor {
+    public:
+        vector<char*> vec;
     public:
         Executor();
-        int execute(vector<char*>);
+        bool execute(vector<char*>);
 };
 
 #endif

@@ -16,7 +16,7 @@ class AndToken : public SeparatorToken {
     public:
         AndToken();
         AndToken(Token* first, Token* second);
-        int execution();
+        bool execute();
 };
 
 #endif

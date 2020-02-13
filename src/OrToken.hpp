@@ -16,7 +16,7 @@ class OrToken : public SeparatorToken {
     public:
         OrToken();
         OrToken(Token* first, Token* second);
-        int execution();
+        bool execute();
 };
 
 #endif

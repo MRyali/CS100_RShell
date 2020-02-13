@@ -4,7 +4,7 @@ using namespace std;
 
 Executor::Executor() {}
 
-int Executor::execute(vector<char*> vectorInput) {
+bool Executor::execute(vector<char*> vectorInput) {
   // array for storing commands from user input
   char** arr = &vectorInput[0];
   pid_t wait_for_result;
@@ -25,5 +25,5 @@ int Executor::execute(vector<char*> vectorInput) {
       // wait for child process to finish
       wait_for_result = waitpid(child_process, &status, WUNTRACED);
   }
-  return 0;
+  return true;
 }

@@ -9,18 +9,18 @@ AndToken::AndToken (Token* first, Token* second) {
     right = second;
 }
 
-int AndToken::execution() {
-    int status = left->execute();
-    if (status == 0) {
+bool AndToken::execute() {
+    bool status = left->execute();
+    if (status) {
         status = right->execute();
-        if (status == 0) {
+        if (status) {
             return status;
         }
         else {
-            return -1;
+            return false;
         }
     }
     else {
-        return -1;
+        return false;
     }
 }
