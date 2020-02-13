@@ -34,7 +34,11 @@ bool CommandToken::execute() {
 	}
 	else if (child_process == 0) {
 	  // execute command from our array of strings
-	  execvp(arr[0], arr);
+	  // includes error handling for execvp
+	  if (execvp(arr[0], arr) < 0) {
+		  perror("Execvp Failed");
+		  return false;
+	  }
 	}
 	else {
 		// wait for child process to finish
