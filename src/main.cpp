@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
 	while (true) {
 		string inputStr;
-		cout << "$ ";
+		cout << "🤡 ";
 		getline(cin, inputStr);
 
 		Tokenizer tokenizer = Tokenizer(inputStr);
