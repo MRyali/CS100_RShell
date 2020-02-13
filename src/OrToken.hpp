@@ -4,17 +4,18 @@
 #include <iostream>
 #include <vector>
 
-#include "Op.hpp"
+#include "SeparatorToken.hpp"
+#include "Executor.hpp"
 
 using namespace std;
 
 class OrToken : public base {
     protected:
-        Op* left;
-        Op* right;
+        SeparatorToken* left;
+        SeparatorToken* right;
     public:
         OrToken();
-        OrToken(Op* first, Op* second);
+        OrToken(SeparatorToken* first, SeparatorToken* second);
         int execute();
 };
 

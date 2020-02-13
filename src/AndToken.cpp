@@ -5,10 +5,9 @@ using namespace std;
 AndToken::AndToken () {
 }
 
-AndToken::AndToken (Op* first, Op* second) {
+AndToken::AndToken (SeparatorToken* first, SeparatorToken* second) {
     left = first;
     right = second;
-    int execute()
 }
 
 int AndToken::execute() {
