@@ -4,6 +4,7 @@
 #include <iostream>
 #include <deque>
 #include <cstring>
+#include <string>
 
 #include "CommandToken.hpp"
 #include "SeparatorToken.hpp"
