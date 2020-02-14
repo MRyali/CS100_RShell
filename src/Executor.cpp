@@ -2,11 +2,11 @@
 
 void Executor::execute() {
 	//Creates a single SeparatorToken that chains together all tokens in command tokens list with the tokens in the separator token list
-	
+
 	string andLiteral = "&&";
 	string orLiteral = "||";
 	string semiLiteral = ";";
-	
+
 	if (separators.size() > 0) {
 		//If there is something in separators, chaining is required
 
@@ -46,15 +46,15 @@ void Executor::execute() {
 			separators.pop_front();
 
 			if (separator == andLiteral) {
-				AndToken* andToken = new AndToken(left, right);
+				AndToken* andToken = new AndToken(leftSide, rightSide);
 				tokens.push_back(andToken);
 			}
 			else if (separator == orLiteral) {
-				OrToken* orToken = new OrToken(left, right);
+				OrToken* orToken = new OrToken(leftSide, rightSide);
 				tokens.push_back(orToken);
 			}
 			else if (separator == semiLiteral) {
-				SemiColonToken* semiColonToken = new SemiColonToken(left, right);
+				SemiColonToken* semiColonToken = new SemiColonToken(leftSide, rightSide);
 				tokens.push_back(semiColonToken);
 			}
 		}
