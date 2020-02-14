@@ -1,7 +1,6 @@
 #ifndef COMMAND_TOKEN_HPP
 #define COMMAND_TOKEN_HPP
 
-#include "Token.hpp"
 #include <iostream>
 #include <deque>
 #include <string>
@@ -12,6 +11,8 @@
 #include <vector>
 
 using namespace std;
+
+#include "Token.hpp"
 
 class CommandToken : public Token {
 	private:

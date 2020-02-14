@@ -5,7 +5,7 @@ void Executor::execute() {
 	
 	string andLiteral = "&&";
 	string orLiteral = "||";
-	string semiLiteral = ";";
+	string semiLiteral = "";
 	
 	if (separators.size() > 0) {
 		//If there is something in separators, chaining is required

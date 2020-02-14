@@ -1,9 +1,11 @@
 #ifndef SEPARATOR_TOKEN_HPP
 #define SEPARATOR_TOKEN_HPP
 
-#include "Token.hpp"
+#include <iostream>
 
 using namespace std;
+
+#include "Token.hpp"
 
 class SeparatorToken : public Token {
     protected:
