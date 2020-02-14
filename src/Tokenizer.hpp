@@ -23,10 +23,11 @@ class Tokenizer {
         Tokenizer(string inputStr) {
             this->inputStr = inputStr;
         }
-
+        
         deque<CommandToken*> commandTokens;
         deque<char*> connectors;
         void tokenize();
+        deque<char*> getConnectors();
 };
 
 #endif
