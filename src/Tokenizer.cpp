@@ -22,6 +22,16 @@ bool containsOrAnd(char* tokens) {
     return ((strncmp("&&", tokens, 2) == 0) || (strncmp("||", tokens, 2) == 0));
 }
 
+deque<char*> Tokenizer::getConnectors() {
+    deque<char*> newConnectorList;
+    
+    for (char* item: connectors) {
+        newConnectorList.push_back(item);
+    }
+    
+    return newConnectorList;
+}
+
 void Tokenizer::tokenize() {
     if (inputStr.length() != 0) {
         char* primitiveInput = new char[inputStr.size() + 1];

@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 		Tokenizer tokenizer = Tokenizer(inputStr);
 		tokenizer.tokenize();
 
-		Executor e = Executor(tokenizer.commandTokens, tokenizer.connectors);
+		Executor e = Executor(tokenizer.commandTokens, tokenizer.getConnectors());
 		e.execute();
 	}
 }
