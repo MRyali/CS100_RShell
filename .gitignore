@@ -43,3 +43,5 @@ cmake_install.cmake
 src/main
 src/main.dSYM/Contents/Info.plist
 src/main.dSYM/Contents/Resources/DWARF/main
+
+a.out
