@@ -42,9 +42,10 @@ void Tokenizer::tokenize() {
 
         if (containsSemiColon(currToken)) {
             currToken[strlen(currToken) - 1] = 0;
-            char semicolonArray[] = ";";
-            char* semicolon = semicolonArray;
-            connectors.push_back(semicolon);
+            string semicolon = ";";
+            char* semicolonArray = new char[2]
+            strcpy(semicolonArray, semicolon.c_str())
+            connectors.push_back(semicolonArray);
             firstTokenIsSemiColon = true;
         }
 
@@ -64,9 +65,11 @@ void Tokenizer::tokenize() {
 
                                     currCommand->addArgument(nextToken);
 
-                                    char semicolonArray2[] = ";";
-                                    char* semicolon2 = semicolonArray2;
-                                    connectors.push_back(semicolon2);
+                                    string semicolon2 = ";";
+                                    char* semicolonArray2 = new char[2];
+                                    strcpy(semicolonArray2, semicolon2.c_str());
+                                    connectors.push_back(semicolonArray);
+
                                     break;
                                 }
 
