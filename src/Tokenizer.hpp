@@ -23,9 +23,13 @@ class Tokenizer {
         Tokenizer(string inputStr) {
             this->inputStr = inputStr;
         }
-        
+
         deque<CommandToken*> commandTokens;
         deque<char*> connectors;
+
+        bool containsComment(char* tokens);
+        bool containsSemiColon(char* tokens);
+        bool containsOrAnd(char* tokens);
         void tokenize();
         deque<char*> getConnectors();
 };

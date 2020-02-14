@@ -1,6 +1,6 @@
 #include "Tokenizer.hpp"
 
-bool containsComment(char* tokens) {
+bool Tokenizer::containsComment(char* tokens) {
     if ((char*)memchr(tokens, '#', strlen(tokens)) != NULL) {
         return true;
     }
@@ -9,7 +9,7 @@ bool containsComment(char* tokens) {
     }
 }
 
-bool containsSemiColon(char* tokens) {
+bool Tokenizer::containsSemiColon(char* tokens) {
     if ((char*)memchr(tokens, ';', strlen(tokens)) != NULL) {
         return true;
     }
@@ -18,17 +18,17 @@ bool containsSemiColon(char* tokens) {
     }
 }
 
-bool containsOrAnd(char* tokens) {
+bool Tokenizer::containsOrAnd(char* tokens) {
     return ((strncmp("&&", tokens, 2) == 0) || (strncmp("||", tokens, 2) == 0));
 }
 
 deque<char*> Tokenizer::getConnectors() {
     deque<char*> newConnectorList;
-    
+
     for (char* item: connectors) {
         newConnectorList.push_back(item);
     }
-    
+
     return newConnectorList;
 }
 

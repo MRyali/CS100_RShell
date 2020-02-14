@@ -2,11 +2,11 @@
 
 void Executor::execute() {
 	//Creates a single SeparatorToken that chains together all tokens in command tokens list with the tokens in the separator token list
-	
+
 	string andLiteral = "&&";
 	string orLiteral = "||";
 	string semiLiteral = ";";
-	
+
 	if (separators.size() > 0) {
 		//If there is something in separators, chaining is required
 
