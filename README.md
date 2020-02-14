@@ -22,27 +22,46 @@
 *Token Class*
 <d1>
 <dd>This is an abstract parent class for different types of token or a single element of a programming language. This can include  keywords, 
-identifiers, operators,separators, literals, or even punctuation. Some of the defined functions will be connector functions (AND, OR, etc.) 
+identifiers, operators, separators, literals, or even punctuation. Some of the defined functions will be connector functions (AND, OR, etc.) 
 and functions to store the commands and arguments. 
-This class will have a subclass that will implement vectors that contain the left and right commands in a chained together command input. 
+This class will have a subclass that will implement deques that contain the left and right commands in a chained together command input. 
 This will allow for easier access and execution of the chained commands. 
-Another subclass is the command token class which will take implement a vector that will store the arguments a given command can take. </dd>
+Another subclass is the command token class which will take implement a deques that will store the arguments a given command can take. </dd>
 </d1>
 
 <br>
 
 *Executor Class*
 <d1>
-<dd> leaf class whose purpose is the execute command inputs. It will take in a vector of tokens into its constructor. This class will include 
-and “execute” function that will return a boolean based on the presence of errors upon execution. </dd>
+<dd> Calls execute function and refines the tokenized commands. </dd>
 </d1>
 
 <br>
 
 *Tokenizer Class*
 <d1>
-<dd>Takes in user input as a vector of characters and run it through a tokenizer function that will return a vector of tokens corresponding to 
-each of the commands the user has typed in.</dd>
+<dd>Parser class that will parse user input and create the commands and connectors.</dd>
+</d1>
+
+<br>
+
+*SeparatorToken Class*
+<d1>
+<dd> Token sublass that assigns the left and right tokens on either side of a connector. </dd>
+</d1>
+
+<br>
+
+*CommandToken Class*
+<d1>
+<dd> Token sublcass responsible for forking and running execvp on the command. </dd>
+</d1>
+
+<br>
+
+*AND/OR/SEMICOLON/EXIT Token Classes*
+<d1>
+<dd> These are sublasses of SeparatorToken that handle execution when the connector is '&&', '||', ';', or the exit command, respectively. </dd>
 </d1>
 
 # Prototypes/Research
