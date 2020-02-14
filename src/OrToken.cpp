@@ -7,7 +7,7 @@ OrToken::OrToken() : SeparatorToken() {}
 OrToken::OrToken (Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool OrToken::execute() {
-    if (leftSide->execute();) {
+    if (leftSide->execute()) {
         return true;
     }
     else {
