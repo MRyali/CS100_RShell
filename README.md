@@ -15,7 +15,7 @@
 <br>
 
 # Diagram
-![OMT Diagram](images/omtdiagram.png)
+![OMT Diagram](images/newomt.png)
 
 <h1>Classes</h1>
 
