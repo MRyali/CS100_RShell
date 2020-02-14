@@ -46,15 +46,15 @@ void Executor::execute() {
 			separators.pop_front();
 
 			if (separator == andLiteral) {
-				AndToken* andToken = new AndToken(left, right);
+				AndToken* andToken = new AndToken(leftSide, rightSide);
 				tokens.push_back(andToken);
 			}
 			else if (separator == orLiteral) {
-				OrToken* orToken = new OrToken(left, right);
+				OrToken* orToken = new OrToken(leftSide, rightSide);
 				tokens.push_back(orToken);
 			}
 			else if (separator == semiLiteral) {
-				SemiColonToken* semiColonToken = new SemiColonToken(left, right);
+				SemiColonToken* semiColonToken = new SemiColonToken(leftSide, rightSide);
 				tokens.push_back(semiColonToken);
 			}
 		}

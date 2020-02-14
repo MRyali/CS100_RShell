@@ -42,7 +42,6 @@ void Tokenizer::tokenize() {
 
         if (containsSemiColon(currToken)) {
             currToken[strlen(currToken) - 1] = 0;
-            
             string semicolon = ";";
             char* semicolonArray = new char[2];
             strcpy(semicolonArray, semicolon.c_str());
@@ -54,18 +53,14 @@ void Tokenizer::tokenize() {
             while (currToken != 0 && !containsComment(currToken)) {
                 CommandToken* currCommand = new CommandToken(currToken);
                 char* nextToken = currToken;
-
                 if (!containsComment(nextToken) && !firstTokenIsSemiColon) {
                     nextToken = strtok(NULL, " ");
-
                     while (nextToken != NULL && !containsComment(nextToken)) {
                         if (!containsComment(nextToken)) {
                             if (!containsOrAnd(nextToken)) {
                                 if (containsSemiColon(nextToken)) {
                                     nextToken[strlen(nextToken) - 1] = 0;
-
                                     currCommand->addArgument(nextToken);
-
                                     string semicolon2 = ";";
                                     char* semicolonArray2 = new char[2];
                                     strcpy(semicolonArray2, semicolon2.c_str());
@@ -73,7 +68,6 @@ void Tokenizer::tokenize() {
 
                                     break;
                                 }
-
                                 if (containsComment(nextToken)) {
                                    break;
                                 }
@@ -85,11 +79,7 @@ void Tokenizer::tokenize() {
                                 if (containsComment(nextToken)) {
                                     break;
                                 }
-
-                                if (containsOrAnd(nextToken)) {
-                                    connectors.push_back(nextToken);
-                                }
-
+                                connectors.push_back(nextToken);
                                 break;
                             }
                         }
