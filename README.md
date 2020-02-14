@@ -26,7 +26,7 @@ identifiers, operators, separators, literals, or even punctuation. Some of the d
 and functions to store the commands and arguments. 
 This class will have a subclass that will implement deques that contain the left and right commands in a chained together command input. 
 This will allow for easier access and execution of the chained commands. 
-Another subclass is the command token class which will take implement deques that will store the arguments a given command can take. </dd>
+Another subclass is the command token class which will take deques that will store the arguments a given command can take. </dd>
 </d1>
 
 <br>
