@@ -21,6 +21,11 @@ bool CommandToken::execute() {
 
 	//execvp/fork implementation
 
+	// handles "false" command
+	string falseLiteral = "false";
+	if (arr[0] == falseLiteral) {
+		return false;
+	}
 	// array for storing commands from user input
 	pid_t wait_for_result;
 	int status;
