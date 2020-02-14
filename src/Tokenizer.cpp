@@ -42,6 +42,7 @@ void Tokenizer::tokenize() {
 
         if (containsSemiColon(currToken)) {
             currToken[strlen(currToken) - 1] = 0;
+            
             string semicolon = ";";
             char* semicolonArray = new char[2];
             strcpy(semicolonArray, semicolon.c_str());
@@ -68,7 +69,7 @@ void Tokenizer::tokenize() {
                                     string semicolon2 = ";";
                                     char* semicolonArray2 = new char[2];
                                     strcpy(semicolonArray2, semicolon2.c_str());
-                                    connectors.push_back(semicolonArray);
+                                    connectors.push_back(semicolonArray2);
 
                                     break;
                                 }
