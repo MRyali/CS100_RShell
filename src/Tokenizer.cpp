@@ -1,7 +1,7 @@
 #include "Tokenizer.hpp"
 
 bool containsComment(char* tokens) {
-    if ((char*)memchr(tokens, '#', strlen(tokens)) != nullptr) {
+    if ((char*)memchr(tokens, '#', strlen(tokens)) != NULL) {
         return true;
     }
     else {
@@ -10,7 +10,7 @@ bool containsComment(char* tokens) {
 }
 
 bool containsSemiColon(char* tokens) {
-    if ((char*)memchr(tokens, ';', strlen(tokens)) != nullptr) {
+    if ((char*)memchr(tokens, ';', strlen(tokens)) != NULL) {
         return true;
     }
     else {
