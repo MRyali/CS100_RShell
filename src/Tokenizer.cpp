@@ -1,5 +1,6 @@
 #include "Tokenizer.hpp"
 
+//Uses the memchr functino to check if the tokens cstring contains a comment (represented by '#')
 bool Tokenizer::containsComment(char* tokens) {
     if ((char*)memchr(tokens, '#', strlen(tokens)) != NULL) {
         return true;
@@ -9,6 +10,7 @@ bool Tokenizer::containsComment(char* tokens) {
     }
 }
 
+//Uses the memchr functino to check if the tokens cstring contains a semicolon (represented by ';')
 bool Tokenizer::containsSemiColon(char* tokens) {
     if ((char*)memchr(tokens, ';', strlen(tokens)) != NULL) {
         return true;
@@ -18,6 +20,7 @@ bool Tokenizer::containsSemiColon(char* tokens) {
     }
 }
 
+//Uses strncmp to compare if the token passed in is either the AND or OR operator
 bool Tokenizer::containsOrAnd(char* tokens) {
     return ((strncmp("&&", tokens, 2) == 0) || (strncmp("||", tokens, 2) == 0));
 }
