@@ -68,10 +68,18 @@ Another subclass is the command token class which will take deques that will sto
 The prototype functions for `waitpid()`, `execvp()`, and `fetch()` show promise. The sample program is able to comfortable execute basic commands. More work is needed to actually separate the execution onto a different system thread. The parser is able to separate different commands and their separators, but needs more work to actually create different tokens for each command. The code written will be beneficial to Assignment 2, as it lays down the foundations for the actual functionality of the shell.
 
 # Development and Testing Roadmap
-- [ ] [#1](/../../issues/1) Create Token (Including AndToken, OrToken, SemiColonToken, CommandToken)
-- [ ] [#2](/../../issues/2) Create Token tests
-- [ ] [#3](/../../issues/3) Create Executor
-- [ ] [#4](/../../issues/4) Create Executor tests
-- [ ] [#5](/../../issues/5) Create Tokenizer
-- [ ] [#6](/../../issues/6) Create Tokenizer tests
+- [x] [#1](/../../issues/1) Create Token (Including AndToken, OrToken, SemiColonToken, CommandToken)
+- [x] [#2](/../../issues/2) Create Token tests
+- [x] [#3](/../../issues/3) Create Executor
+- [x] [#4](/../../issues/4) Create Executor tests
+- [x] [#5](/../../issues/5) Create Tokenizer
+- [x] [#6](/../../issues/6) Create Tokenizer tests
+- [ ] [#28](/../../issues/28) Create TestToken
+- [ ] [#29](/../../issues/29) Create PrecedenceToken
+- [ ] [#30](/../../issues/30) Add support for TestToken in Tokenizer and Executor
+- [ ] [#31](/../../issues/31) Add support for PrecedenceToken in Tokenizer and Executor
+- [ ] [#32](/../../issues/32) Add TestToken unit tests
+- [ ] [#33](/../../issues/33) Add PrecedenceToken unit tests
+- [ ] [#34](/../../issues/34) Add bash scripts to googletest
+- [ ] [#35](/../../issues/35) Update UMT diagram and README
 
