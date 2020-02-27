@@ -55,7 +55,6 @@ bool CommandToken::execute() {
 						}
 					}
 				}
-				// -e by default
 				else {
 					cout << "Command was Test -e" << endl;
 					if (buf.st_size != 0) {
@@ -63,10 +62,19 @@ bool CommandToken::execute() {
 						return true;
 					}
 				}
+				cout << "Test failed" << endl;
 				return false;
 			}
-			return false;
 		}
+		// -e by default
+		else {
+			cout << "Command was Test -e" << endl;
+			if (buf.st_size != 0) {
+				cout << "File size: " << buf.st_size << endl;
+				return true;
+			}
+		}
+		cout << "Test failed" << endl;
 		return false;
 	}
 
