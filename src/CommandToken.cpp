@@ -39,16 +39,20 @@ bool CommandToken::execute() {
 					cout << "Command was Test -f" << endl;
 					if (buf.st_size != 0) {
 						cout << "File size: " << buf.st_size << endl;
-						cout << "Regular file: " << S_ISREG(buf.st_mode) << endl;
-						return true;
+						if (S_ISREG(buf.st_mode) == 1) {
+							cout << "This is a regular file: " << endl;
+							return true;
+						}
 					}
 				}
 				else if (arr[1] == dTestFlag) {
 					cout << "Command was Test -d" << endl;
 					if (buf.st_mtime != 0) {
 						cout << "File size: " << buf.st_size << endl;
-						cout << "Directory: " << S_ISDIR(buf.st_mode) << endl;
-						return true;
+						if (S_ISDIR(buf.st_mode) == 1) {
+							cout << "This is a valid directory" <<  << endl;
+							return true;
+						}
 					}
 				}
 				// -e by default
