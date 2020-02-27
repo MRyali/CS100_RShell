@@ -50,7 +50,7 @@ bool CommandToken::execute() {
 					if (buf.st_mtime != 0) {
 						cout << "File size: " << buf.st_size << endl;
 						if (S_ISDIR(buf.st_mode) == 1) {
-							cout << "This is a valid directory" <<  << endl;
+							cout << "This is a valid directory" << endl;
 							return true;
 						}
 					}
