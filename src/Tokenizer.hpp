@@ -30,8 +30,10 @@ class Tokenizer {
         bool containsComment(char* tokens);
         bool containsSemiColon(char* tokens);
         bool containsOrAnd(char* tokens);
+        bool containsLeftPrecedence(char* tokens);
+        bool containsRightPrecedence(char* tokens);
+        
         void tokenize();
-        deque<char*> getConnectors();
 };
 
 #endif

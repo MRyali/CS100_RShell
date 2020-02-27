@@ -1,6 +1,6 @@
 #include "Tokenizer.hpp"
 
-//Uses the memchr functino to check if the tokens cstring contains a comment (represented by '#')
+//Uses the memchr function to check if the tokens cstring contains a comment (represented by '#')
 bool Tokenizer::containsComment(char* tokens) {
     if ((char*)memchr(tokens, '#', strlen(tokens)) != NULL) {
         return true;
@@ -10,9 +10,29 @@ bool Tokenizer::containsComment(char* tokens) {
     }
 }
 
-//Uses the memchr functino to check if the tokens cstring contains a semicolon (represented by ';')
+//Uses the memchr function to check if the tokens cstring contains a semicolon (represented by ';')
 bool Tokenizer::containsSemiColon(char* tokens) {
     if ((char*)memchr(tokens, ';', strlen(tokens)) != NULL) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//Uses the memchr function to check if the tokens cstring contains a left parenthese (represented by '(')
+bool Tokenizer::containsLeftPrecedence(char* tokens) {
+    if ((char*)memchr(tokens, '(', strlen(tokens)) != NULL) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//Uses the memchr function to check if the tokens cstring contains a right parenthese (represented by ')')
+bool Tokenizer::containsRightPrecedence(char* tokens) {
+    if ((char*)memchr(tokens, ')', strlen(tokens)) != NULL) {
         return true;
     }
     else {
@@ -23,16 +43,6 @@ bool Tokenizer::containsSemiColon(char* tokens) {
 //Uses strncmp to compare if the token passed in is either the AND or OR operator
 bool Tokenizer::containsOrAnd(char* tokens) {
     return ((strncmp("&&", tokens, 2) == 0) || (strncmp("||", tokens, 2) == 0));
-}
-
-deque<char*> Tokenizer::getConnectors() {
-    deque<char*> newConnectorList;
-
-    for (char* item: connectors) {
-        newConnectorList.push_back(item);
-    }
-
-    return newConnectorList;
 }
 
 void Tokenizer::tokenize() {
@@ -68,7 +78,6 @@ void Tokenizer::tokenize() {
                                     char* semicolonArray2 = new char[2];
                                     strcpy(semicolonArray2, semicolon2.c_str());
                                     connectors.push_back(semicolonArray2);
-
                                     break;
                                 }
                                 if (containsComment(nextToken)) {
@@ -88,14 +97,12 @@ void Tokenizer::tokenize() {
                         }
                         nextToken = strtok(NULL, " ");
                     }
-
                     currToken = nextToken;
                     currToken = strtok(NULL, " ");
 
                     if (currCommand->getName() == "exit") {
                         ExitToken* exitToken = new ExitToken();
                         commandTokens.push_back(exitToken);
-
                     }
                     else {
                         commandTokens.push_back(currCommand);
