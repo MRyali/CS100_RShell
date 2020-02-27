@@ -4,7 +4,7 @@ using namespace std;
 
 TestToken::TestToken() : SeparatorToken() {}
 
-TestToken::TestToken(Token* first) : SeparatorToken(first, second) {}
+TestToken::TestToken(Token* , Token* second) : SeparatorToken(first, second) {}
 
 bool TestToken::execute() {
     if (// command is test) {

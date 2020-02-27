@@ -26,6 +26,30 @@ bool CommandToken::execute() {
 	if (arr[0] == falseLiteral) {
 		return false;
 	}
+
+	string testLiteral = "test";
+	string eTestFlag = "-e";
+	string fTestFlag = "-f";
+	string dTestFlag = "-d";
+	if (arr[0] == testLiteral) {
+		if (size != 1) {
+			if (arr[1] == "-f") {
+				cout << "Command was Test -f" << endl;
+				return true;
+			}
+			else if (arr[1] == "-d") {
+				cout << "Command was Test -d" << endl;
+				return true;
+			}
+			else {
+				cout << "Command was Test -e" << endl;
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+
 	// array for storing commands from user input
 	pid_t wait_for_result;
 	int status;
