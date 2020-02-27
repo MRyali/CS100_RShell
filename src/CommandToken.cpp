@@ -33,11 +33,11 @@ bool CommandToken::execute() {
 	string dTestFlag = "-d";
 	struct stat buf;
 	if (arr[0] == testLiteral) {
-		if (size != 1) {
+		if (size > 2) {
 			if (stat(arr[2], &buf) != -1) {
 				if (arr[1] == fTestFlag) {
-					cout << "Command was Test -f" << endl;
 					if (buf.st_size != 0) {
+						cout << "Command was Test -f" << endl;
 						cout << "File size: " << buf.st_size << endl;
 						if (S_ISREG(buf.st_mode) == 1) {
 							cout << "This is a regular file: " << endl;
@@ -46,8 +46,8 @@ bool CommandToken::execute() {
 					}
 				}
 				else if (arr[1] == dTestFlag) {
-					cout << "Command was Test -d" << endl;
 					if (buf.st_mtime != 0) {
+						cout << "Command was Test -d" << endl;
 						cout << "File size: " << buf.st_size << endl;
 						if (S_ISDIR(buf.st_mode) == 1) {
 							cout << "This is a valid directory" << endl;
@@ -56,8 +56,8 @@ bool CommandToken::execute() {
 					}
 				}
 				else {
-					cout << "Command was Test -e" << endl;
 					if (buf.st_size != 0) {
+						cout << "Command was Test -e" << endl;
 						cout << "File size: " << buf.st_size << endl;
 						return true;
 					}
@@ -67,11 +67,13 @@ bool CommandToken::execute() {
 			}
 		}
 		// -e by default
-		else {
-			cout << "Command was Test -e" << endl;
-			if (buf.st_size != 0) {
-				cout << "File size: " << buf.st_size << endl;
-				return true;
+		if (size == 2){
+			if (stat(arr[1], &buf) != -1) {}
+				if (buf.st_size != 0) {
+					cout << "Command was Test -e" << endl;
+					cout << "File size: " << buf.st_size << endl;
+					return true;
+				}
 			}
 		}
 		cout << "Test failed" << endl;
