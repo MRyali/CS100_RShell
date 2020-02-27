@@ -28,16 +28,15 @@ bool CommandToken::execute() {
 	}
 
 	string testLiteral = "test";
-	string eTestFlag = "-e";
 	string fTestFlag = "-f";
 	string dTestFlag = "-d";
 	if (arr[0] == testLiteral) {
 		if (size != 1) {
-			if (arr[1] == "-f") {
+			if (arr[1] == fTestFlag) {
 				cout << "Command was Test -f" << endl;
 				return true;
 			}
-			else if (arr[1] == "-d") {
+			else if (arr[1] == dTestFlag) {
 				cout << "Command was Test -d" << endl;
 				return true;
 			}
