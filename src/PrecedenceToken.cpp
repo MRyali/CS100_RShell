@@ -7,5 +7,5 @@ PrecedenceToken::PrecedenceToken() : SeparatorToken() {}
 PrecedenceToken::PrecedenceToken(Token* first, Token* second) : SeparatorToken(first, second) {}
 
 bool PrecedenceToken::execute() {
-    
+    //changes the order of execution.
 }
