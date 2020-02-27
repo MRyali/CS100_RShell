@@ -68,7 +68,7 @@ bool CommandToken::execute() {
 		}
 		// -e by default
 		if (size == 2){
-			if (stat(arr[1], &buf) != -1) {}
+			if (stat(arr[1], &buf) != -1) {
 				if (buf.st_size != 0) {
 					cout << "Command was Test -e" << endl;
 					cout << "File size: " << buf.st_size << endl;
