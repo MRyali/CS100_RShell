@@ -27,22 +27,39 @@ bool CommandToken::execute() {
 		return false;
 	}
 
+	// handles "test" command
 	string testLiteral = "test";
 	string fTestFlag = "-f";
 	string dTestFlag = "-d";
+	struct stat buf;
 	if (arr[0] == testLiteral) {
 		if (size != 1) {
-			if (arr[1] == fTestFlag) {
-				cout << "Command was Test -f" << endl;
-				return true;
-			}
-			else if (arr[1] == dTestFlag) {
-				cout << "Command was Test -d" << endl;
-				return true;
-			}
-			else {
-				cout << "Command was Test -e" << endl;
-				return true;
+			if (stat(arr[2],&buf) != -1) {
+				if (arr[1] == fTestFlag) {
+					cout << "Command was Test -f" << endl;
+					// if (buf.st_size != 0) {
+					// 	return true;
+					// }
+					cout << "File size: " << buf.st_size << endl;
+					return true;
+				}
+				else if (arr[1] == dTestFlag) {
+					cout << "Command was Test -d" << endl;
+					// if (buf.st_mtime != 0) {
+					// 	return true;
+					// }
+					cout << "Modification date: " << buf.st_mtime << endl;
+					return true;
+				}
+				else {
+					cout << "Command was Test -e" << endl;
+					// if (buf.st_size != 0) {
+					// 	return true;
+					// }
+					cout << "File size: " << buf.st_size << endl;
+					return true;
+				}
+				return false;
 			}
 			return false;
 		}
