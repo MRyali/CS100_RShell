@@ -34,30 +34,30 @@ bool CommandToken::execute() {
 	struct stat buf;
 	if (arr[0] == testLiteral) {
 		if (size != 1) {
-			if (stat(arr[2],&buf) != -1) {
+			if (stat(arr[2], &buf) != -1) {
 				if (arr[1] == fTestFlag) {
 					cout << "Command was Test -f" << endl;
-					// if (buf.st_size != 0) {
-					// 	return true;
-					// }
-					cout << "File size: " << buf.st_size << endl;
-					return true;
+					if (buf.st_size != 0) {
+						cout << "File size: " << buf.st_size << endl;
+						cout << "Regular file: " << S_ISREG(buf.st_mode) << endl;
+						return true;
+					}
 				}
 				else if (arr[1] == dTestFlag) {
 					cout << "Command was Test -d" << endl;
-					// if (buf.st_mtime != 0) {
-					// 	return true;
-					// }
-					cout << "Modification date: " << buf.st_mtime << endl;
-					return true;
+					if (buf.st_mtime != 0) {
+						cout << "File size: " << buf.st_size << endl;
+						cout << "Directory: " << S_ISDIR(buf.st_mode) << endl;
+						return true;
+					}
 				}
+				// -e by default
 				else {
 					cout << "Command was Test -e" << endl;
-					// if (buf.st_size != 0) {
-					// 	return true;
-					// }
-					cout << "File size: " << buf.st_size << endl;
-					return true;
+					if (buf.st_size != 0) {
+						cout << "File size: " << buf.st_size << endl;
+						return true;
+					}
 				}
 				return false;
 			}
