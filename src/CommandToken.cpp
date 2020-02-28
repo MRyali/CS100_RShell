@@ -37,32 +37,27 @@ bool CommandToken::execute() {
 			if (stat(arr[2], &buf) != -1) {
 				if (arr[1] == fTestFlag) {
 					if (buf.st_size != 0) {
-						cout << "Command was Test -f" << endl;
-						cout << "File size: " << buf.st_size << endl;
 						if (S_ISREG(buf.st_mode) == 1) {
-							cout << "This is a regular file: " << endl;
+							cout << "(True)" << endl;
 							return true;
 						}
 					}
 				}
 				else if (arr[1] == dTestFlag) {
 					if (buf.st_mtime != 0) {
-						cout << "Command was Test -d" << endl;
-						cout << "File size: " << buf.st_size << endl;
 						if (S_ISDIR(buf.st_mode) == 1) {
-							cout << "This is a valid directory" << endl;
+							cout << "(True)" << endl;
 							return true;
 						}
 					}
 				}
 				else {
 					if (buf.st_size != 0) {
-						cout << "Command was Test -e" << endl;
-						cout << "File size: " << buf.st_size << endl;
+						cout << "(True)" << endl;
 						return true;
 					}
 				}
-				cout << "Test failed" << endl;
+				cout << "(False)" << endl;
 				return false;
 			}
 		}
@@ -76,7 +71,7 @@ bool CommandToken::execute() {
 				}
 			}
 		}
-		cout << "Test failed" << endl;
+		cout << "(False)" << endl;
 		return false;
 	}
 
