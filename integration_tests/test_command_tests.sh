@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 test;
 test names.txt;

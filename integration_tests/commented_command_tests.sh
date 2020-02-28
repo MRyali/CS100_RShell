@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo start commented tests #echo but not this
 ls -a; echo hello && mkdir test || echo world; git status # echo this is from the readme
