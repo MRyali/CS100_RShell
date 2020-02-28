@@ -14,4 +14,5 @@ git clone https://github.com/jackdclark/five.git
 ls
 rm -rf five
 echo final singleCommand test
+factor 100
 exit # echo "did it exit"
