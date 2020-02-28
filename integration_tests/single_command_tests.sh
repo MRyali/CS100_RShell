@@ -13,6 +13,6 @@ git help
 git clone https://github.com/jackdclark/five.git
 ls
 rm -rf five
-echo final singleCommand test
 factor 100
+echo final singleCommand test
 exit # echo "did it exit"
