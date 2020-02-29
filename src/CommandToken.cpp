@@ -26,7 +26,6 @@ bool CommandToken::execute() {
 	if (arr[0] == falseLiteral) {
 		return false;
 	}
-
 	// handles "test" command
 	string testLiteral = "test";
 	string fTestFlag = "-f";
@@ -78,7 +77,7 @@ bool CommandToken::execute() {
 		cout << "(False)" << endl;
 		return false;
 	}
-
+  
 	// array for storing commands from user input
 	pid_t wait_for_result;
 	int status;

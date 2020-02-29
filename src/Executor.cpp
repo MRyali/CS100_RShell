@@ -6,15 +6,15 @@ void Executor::execute() {
 	string andLiteral = "&&";
 	string orLiteral = "||";
 	string semiLiteral = ";";
-
+	
 	if (separators.size() > 0) {
 		//If there is something in separators, chaining is required
 
 		//Create the initial SeparatorToken
-		CommandToken* left = commandTokens.front();
+		Token* left = commandTokens.front();
 		commandTokens.pop_front();
 
-		CommandToken* right = commandTokens.front();
+		Token* right = commandTokens.front();
 		commandTokens.pop_front();
 
 		char* currSeparator = separators.front();
@@ -39,7 +39,7 @@ void Executor::execute() {
 			SeparatorToken* leftSide = tokens.front();
 			tokens.pop_front();
 
-			CommandToken* rightSide = commandTokens.front();
+			Token* rightSide = commandTokens.front();
 			commandTokens.pop_front();
 
 			char* separator = separators.front();
@@ -58,7 +58,7 @@ void Executor::execute() {
 				tokens.push_back(semiColonToken);
 			}
 		}
-
+		
 		//Once everything is chained together, just run the first token in the list
 		SeparatorToken* runToken = tokens.front();
 		tokens.pop_front();
@@ -68,7 +68,7 @@ void Executor::execute() {
 		//If there are not separators that means there is only one command
 		//Just run the first command in commandTokens
 		if (commandTokens.size() == 1) {
-			CommandToken* currentCommand = commandTokens.front();
+			Token* currentCommand = commandTokens.front();
 			commandTokens.pop_front();
 			currentCommand->execute();
 		}

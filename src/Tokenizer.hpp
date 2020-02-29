@@ -5,6 +5,7 @@
 #include <cstring>
 #include <iostream>
 #include <deque>
+#include <algorithm>
 
 #include "CommandToken.hpp"
 #include "AndToken.hpp"
@@ -18,20 +19,35 @@ using namespace std;
 class Tokenizer {
     private:
         string inputStr;
+        
+        string andLiteral = "&&";
+        string orLiteral = "||";
+        string semiLiteral = ";";
 
     public:
+        deque<CommandToken*> commandTokens;
+        deque<Token*> finalCommandTokens;
+        
+        deque<char*> connectors;
+        deque<char*> outerConnectors;
+        
         Tokenizer(string inputStr) {
             this->inputStr = inputStr;
         }
 
-        deque<CommandToken*> commandTokens;
-        deque<char*> connectors;
+        bool precedenceFiltered;
 
         bool containsComment(char* tokens);
         bool containsSemiColon(char* tokens);
         bool containsOrAnd(char* tokens);
+        bool containsDash(char* tokens);
+        
+        bool containsLeftPrecedence(char* tokens);
+        bool containsRightPrecedence(char* tokens);
+        bool containsLeftBracket(char* tokens);
+        bool containsRightBracket(char* tokens);
+        
         void tokenize();
-        deque<char*> getConnectors();
 };
 
 #endif

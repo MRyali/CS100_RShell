@@ -16,13 +16,15 @@ using namespace std;
 
 class Executor {
 	private:
-		deque<CommandToken*> commandTokens;
+		bool precedenceFiltered;
+		deque<Token*> commandTokens;
 		deque<char*> separators;
 		deque<SeparatorToken*> tokens;
 	
 	public:
-		Executor(deque<CommandToken*> commandTokenDeque, deque<char*> connectorDeque) {
+		Executor(deque<Token*> commandTokenDeque, deque<char*> connectorDeque) {
 			commandTokens = commandTokenDeque;
+			
 			separators = connectorDeque;
 		}
 		
