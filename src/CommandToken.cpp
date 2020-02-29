@@ -31,10 +31,15 @@ bool CommandToken::execute() {
 	string testLiteral = "test";
 	string fTestFlag = "-f";
 	string dTestFlag = "-d";
+	string eTestFlag = "-e";
 	struct stat buf;
 	if (arr[0] == testLiteral) {
 		if (size > 2) {
 			if (stat(arr[2], &buf) != -1) {
+				if ((arr[1] != eTestFlag) || (arr[1] != fTestFlag) || (arr[1] != dTestFlag)) {
+					perror("Invalid Test Flag");
+					return false;
+				}
 				if (arr[1] == fTestFlag) {
 					if (buf.st_size != 0) {
 						if (S_ISREG(buf.st_mode) == 1) {
