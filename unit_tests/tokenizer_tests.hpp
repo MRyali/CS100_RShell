@@ -40,4 +40,16 @@ TEST(TokenizerTest, TokenizerContainsANDOR) {
     EXPECT_EQ(t.containsOrAnd(array2), true);
 }
 
+TEST(TokenizerTest, TokenizerTestCommand) {
+    string inputStr = "test -e names.txt";
+
+    //If the program is not the exit command, pass the input to the Tokenizer class for parsing and classification
+    Tokenizer tokenizer = Tokenizer(inputStr);
+    tokenizer.tokenize();
+
+    //Pass the tokenizer's classification deques to Executor, which runs each command in the proper order
+    Executor e = Executor(tokenizer.commandTokens, tokenizer.getConnectors());
+    EXPECT_EQ(e.execute(), true);
+}
+
 #endif
