@@ -97,8 +97,11 @@ void Tokenizer::tokenize() {
             while (currToken != 0) {
                 int rightPrecedenceNum = 0;
                 
+                
+                //This removes 
                 if (containsLeftPrecedence(currToken) && containsRightPrecedence(currToken) && containsLeftBracket(currToken) && containsRightBracket(currToken)) {
-                    cout << "This is a weird case what do i do help me plz" << endl;
+                    cout << "Congrats! We didn't think this case was even possible, but somehow you did it!" << endl;
+                    exit(1);
                 }
                 else if (containsLeftPrecedence(currToken) && containsLeftBracket(currToken)) {
                     while (containsLeftPrecedence(currToken)) {
@@ -284,11 +287,7 @@ void Tokenizer::tokenize() {
             if (completedCommand.size() != 0) {
                 separatedCommands.push_back(completedCommand);
             }
-            
-            for (auto s: separatedCommands) {
-                cout << s << endl;
-            }
-            
+
             while (separatedCommands.size() != 0) {
                 char* topCommand = new char[separatedCommands.front().size() + 1];
                 strcpy(topCommand, separatedCommands.front().c_str());
@@ -639,10 +638,6 @@ void Tokenizer::tokenize() {
             
             if (completedCommand.size() != 0) {
                 separatedCommands.push_back(completedCommand);
-            }
-            
-            for (auto s: separatedCommands) {
-                cout << s << endl;
             }
             
             while (separatedCommands.size() != 0) {
