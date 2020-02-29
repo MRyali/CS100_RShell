@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 		tokenizer->tokenize();
 
 		//Pass the tokenizer's classification deques to Executor, which runs each command in the proper order
-		Executor e = Executor(tokenizer->commandTokens, tokenizer->connectors);
+		Executor e = Executor(tokenizer->finalCommandTokens, tokenizer->outerConnectors);
 		e.execute();
 	}
 }
