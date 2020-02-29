@@ -332,6 +332,14 @@ void Tokenizer::tokenize() {
                     
                     commandTokens.push_back(currCommand);
                     nextToken = strtok(NULL, " ");
+                    
+                    if (nextToken != 0) {
+                        if (containsSemiColon(nextToken) || containsOrAnd(nextToken)) {
+                            connectors.push_back(nextToken);
+                            nextToken = strtok(NULL, " ");
+                        }
+                    }
+                    
                     currToken = nextToken;
                 }
 
@@ -362,6 +370,14 @@ void Tokenizer::tokenize() {
                             
                             commandTokens.push_back(currCommand);
                             nextToken = strtok(NULL, " ");
+                            
+                            if (nextToken != 0) {
+                                if (containsSemiColon(nextToken) || containsOrAnd(nextToken)) {
+                                    connectors.push_back(nextToken);
+                                    nextToken = strtok(NULL, " ");
+                                }
+                            }
+                            
                             currToken = nextToken;
                         }
                         
@@ -836,6 +852,14 @@ void Tokenizer::tokenize() {
                 
                 commandTokens.push_back(currCommand);
                 nextToken = strtok(NULL, " ");
+                
+                if (nextToken != 0) {
+                    if (containsSemiColon(nextToken) || containsOrAnd(nextToken)) {
+                        connectors.push_back(nextToken);
+                        nextToken = strtok(NULL, " ");
+                    }
+                }
+                
                 currToken = nextToken;
             }
 
@@ -866,6 +890,14 @@ void Tokenizer::tokenize() {
                         
                         commandTokens.push_back(currCommand);
                         nextToken = strtok(NULL, " ");
+                        
+                        if (nextToken != 0) {
+                            if (containsSemiColon(nextToken) || containsOrAnd(nextToken)) {
+                                connectors.push_back(nextToken);
+                                nextToken = strtok(NULL, " ");
+                            }
+                        }
+                        
                         currToken = nextToken;
                     }
                     
