@@ -1,6 +1,6 @@
 #include "Executor.hpp"
 
-void Executor::execute() {
+bool Executor::execute() {
 	//Creates a single SeparatorToken that chains together all tokens in command tokens list with the tokens in the separator token list
 
 	string andLiteral = "&&";
@@ -62,7 +62,7 @@ void Executor::execute() {
 		//Once everything is chained together, just run the first token in the list
 		SeparatorToken* runToken = tokens.front();
 		tokens.pop_front();
-		runToken->execute();
+		return runToken->execute();
 	}
 	else {
 		//If there are not separators that means there is only one command
@@ -70,7 +70,12 @@ void Executor::execute() {
 		if (commandTokens.size() == 1) {
 			Token* currentCommand = commandTokens.front();
 			commandTokens.pop_front();
-			currentCommand->execute();
+			return currentCommand->execute();
+		}
+		else {
+			return false;
 		}
 	}
+	
+	return false;
 }

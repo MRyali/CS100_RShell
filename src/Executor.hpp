@@ -28,7 +28,7 @@ class Executor {
 			separators = connectorDeque;
 		}
 		
-		void execute();
+		bool execute();
 };
 
 #endif
