@@ -44,11 +44,11 @@ TEST(TokenizerTest, TokenizerTestCommand) {
     string inputStr = "test -e names.txt";
 
     //If the program is not the exit command, pass the input to the Tokenizer class for parsing and classification
-    Tokenizer tokenizer = Tokenizer(inputStr);
-    tokenizer.tokenize();
+    Tokenizer* tokenizer = new Tokenizer(inputStr);
+    tokenizer->tokenize();
 
     //Pass the tokenizer's classification deques to Executor, which runs each command in the proper order
-    Executor e = Executor(tokenizer.commandTokens, tokenizer.getConnectors());
+    Executor e = Executor(tokenizer->finalCommandTokens, tokenizer->outerConnectors);
     EXPECT_EQ(e.execute(), true);
 }
 
