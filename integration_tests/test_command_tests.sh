@@ -1,6 +1,13 @@
 #!/bin/sh
 
 test;
+
+test -e rshell || echo “rshell executable missing, check submission instruction section of the specifications”
+test -e test || echo “test executable missing, check submission instruction section of the specifications”
+test -e names.txt || echo “names.txt file missing, check submission instruction section of the specifications”
+test -d unit_tests || echo “unit_tests/ directory missing, check submission instruction section of the specifications”
+test -d integration_tests || echo “integration_tests/ directory missing, check submission instruction section of the specifications”
+
 test names.txt;
 test -e names.txt;
 test -e test/file/path;
