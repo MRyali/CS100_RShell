@@ -29,4 +29,6 @@ test -e src && echo “path exists” || ls;
 [ -e test/file/path ] && (echo “path exists” && ls); #one more comment
 [ -e src ] && (echo “path exists” || ls);
 
+echo "end of test"
+
 exit
