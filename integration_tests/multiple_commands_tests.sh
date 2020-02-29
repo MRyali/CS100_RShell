@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo start && echo multipleCommands && echo tests
 ls -a; echo hello && mkdir test || echo world; git status

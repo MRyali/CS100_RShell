@@ -26,7 +26,58 @@ bool CommandToken::execute() {
 	if (arr[0] == falseLiteral) {
 		return false;
 	}
-	
+	// handles "test" command
+	string testLiteral = "test";
+	string fTestFlag = "-f";
+	string dTestFlag = "-d";
+	string eTestFlag = "-e";
+	struct stat buf;
+	if (arr[0] == testLiteral) {
+		if (size > 2) {
+			if (stat(arr[2], &buf) != -1) {
+				if ((arr[1] != eTestFlag) || (arr[1] != fTestFlag) || (arr[1] != dTestFlag)) {
+					perror("Invalid Test Flag");
+					return false;
+				}
+				if (arr[1] == fTestFlag) {
+					if (buf.st_size != 0) {
+						if (S_ISREG(buf.st_mode) == 1) {
+							cout << "(True)" << endl;
+							return true;
+						}
+					}
+				}
+				else if (arr[1] == dTestFlag) {
+					if (buf.st_mtime != 0) {
+						if (S_ISDIR(buf.st_mode) == 1) {
+							cout << "(True)" << endl;
+							return true;
+						}
+					}
+				}
+				else {
+					if (buf.st_size != 0) {
+						cout << "(True)" << endl;
+						return true;
+					}
+				}
+				cout << "(False)" << endl;
+				return false;
+			}
+		}
+		// -e by default
+		if (size == 2){
+			if (stat(arr[1], &buf) != -1) {
+				if (buf.st_size != 0) {
+					cout << "(True)" << endl;
+					return true;
+				}
+			}
+		}
+		cout << "(False)" << endl;
+		return false;
+	}
+  
 	// array for storing commands from user input
 	pid_t wait_for_result;
 	int status;

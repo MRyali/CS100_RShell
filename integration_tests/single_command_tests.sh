@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo start singleCommand tests
 ls
@@ -13,5 +13,6 @@ git help
 git clone https://github.com/jackdclark/five.git
 ls
 rm -rf five
+factor 100
 echo final singleCommand test
 exit # echo "did it exit"
