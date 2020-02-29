@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <vector>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -25,7 +27,7 @@ class CommandToken : public Token {
 		CommandToken(char* command) {
 			commandName = command;
 		}
-		
+
 		void addArgument(char* arg);
 		string getName();
 		virtual bool execute();
