@@ -35,7 +35,7 @@ bool CommandToken::execute() {
 	if (arr[0] == testLiteral) {
 		if (size > 2) {
 			if (stat(arr[2], &buf) != -1) {
-				if ((arr[1] != eTestFlag) || (arr[1] != fTestFlag) || (arr[1] != dTestFlag)) {
+				if ((arr[1] != eTestFlag) && (arr[1] != fTestFlag) && (arr[1] != dTestFlag)) {
 					perror("Invalid Test Flag");
 					return false;
 				}
