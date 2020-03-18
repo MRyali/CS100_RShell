@@ -74,12 +74,12 @@ The prototype functions for `waitpid()`, `execvp()`, and `fetch()` show promise.
 - [x] [#4](/../../issues/4) Create Executor tests
 - [x] [#5](/../../issues/5) Create Tokenizer
 - [x] [#6](/../../issues/6) Create Tokenizer tests
-- [ ] [#28](/../../issues/28) Create TestToken
-- [ ] [#29](/../../issues/29) Create PrecedenceToken
-- [ ] [#30](/../../issues/30) Add support for TestToken in Tokenizer and Executor
-- [ ] [#31](/../../issues/31) Add support for PrecedenceToken in Tokenizer and Executor
-- [ ] [#32](/../../issues/32) Add TestToken unit tests
-- [ ] [#33](/../../issues/33) Add PrecedenceToken unit tests
-- [ ] [#34](/../../issues/34) Add bash scripts to googletest
-- [ ] [#35](/../../issues/35) Update UMT diagram and README
+- [x] [#28](/../../issues/28) Create TestToken
+- [x] [#29](/../../issues/29) Create PrecedenceToken
+- [x] [#30](/../../issues/30) Add support for TestToken in Tokenizer and Executor
+- [x] [#31](/../../issues/31) Add support for PrecedenceToken in Tokenizer and Executor
+- [x] [#32](/../../issues/32) Add TestToken unit tests
+- [x] [#33](/../../issues/33) Add PrecedenceToken unit tests
+- [x] [#34](/../../issues/34) Add bash scripts to googletest
+- [x] [#35](/../../issues/35) Update UMT diagram and README
 
