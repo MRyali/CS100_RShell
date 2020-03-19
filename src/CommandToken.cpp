@@ -26,11 +26,16 @@ bool CommandToken::execute() {
 	if (arr[0] == falseLiteral) {
 		return false;
 	}
+	
 	// handles "test" command
 	string testLiteral = "test";
 	string fTestFlag = "-f";
 	string dTestFlag = "-d";
 	string eTestFlag = "-e";
+	
+	string outputFlag = ">";
+	string outputFlag2 = ">>";
+	
 	struct stat buf;
 	if (arr[0] == testLiteral) {
 		if (size > 2) {
@@ -76,6 +81,34 @@ bool CommandToken::execute() {
 		}
 		cout << "(False)" << endl;
 		return false;
+	}
+	else if (size == 3 && arr[1] == outputFlag) {
+		int descriptor = open(arr[2], O_WRONLY| O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
+		
+		if (dup2(descriptor, 1) < 0) {
+			perror("dup2");
+			return false;
+		}
+		else {
+			CommandToken* cmd2 = new CommandToken(arr[0]);
+			cmd2->execute();
+			
+			return true;
+		}
+	}
+	else if (size == 3 && arr[1] == outputFlag2) {
+		int descriptor = open(arr[2], O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
+		
+		if (dup2(descriptor, 1) < 0) {
+			perror("dup2");
+			return false;
+		}
+		else {
+			CommandToken* cmd2 = new CommandToken(arr[0]);
+			cmd2->execute();
+			
+			return true;
+		}
 	}
   
 	// array for storing commands from user input
