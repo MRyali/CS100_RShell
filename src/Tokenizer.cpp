@@ -74,6 +74,15 @@ bool Tokenizer::containsOrAnd(char* tokens) {
     return ((strncmp("&&", tokens, 2) == 0) || (strncmp("||", tokens, 2) == 0));
 }
 
+bool Tokenizer::containsOutput(char* tokens) {
+    if ((char*)memchr(tokens, '>', strlen(tokens)) != NULL) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 void Tokenizer::tokenize() {
     if (inputStr.length() != 0) {
         char* primitiveInput = new char[inputStr.size() + 1];

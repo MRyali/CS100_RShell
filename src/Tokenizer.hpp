@@ -47,6 +47,8 @@ class Tokenizer {
         bool containsLeftBracket(char* tokens);
         bool containsRightBracket(char* tokens);
         
+        bool containsOutput(char* tokens);
+        
         void tokenize();
 };
 
